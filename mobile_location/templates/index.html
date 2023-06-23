@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>手机归属地查询></title>
+</head>
+<body>
+<h1>手机归属地查询</h1>
+
+<form name="mobileform" method="get" action="/query">
+<input type="text" name="mobile" placeholder="请输入手机号码(段)">
+
+<input class="input-submit" type="submit" value="查询">
+</form>
+<table>
+    <thead>
+    <tr>
+        <th colspan="2">
+            <p>查询结果</p>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>您查询的手机号码段</td>
+        <td>{{data.mobile}}</td>
+    </tr>
+    <tr>
+        <td>卡号归属地</td>
+        <td><span>{{data.location}}</span></td>
+    </tr>
+    <tr>
+        <td>运 营 商</td>
+        <td>
+            {{data.operator}}
+        </td>
+    </tr>
+    <tr>
+        <td>卡 类 型</td>
+        <td><span>{{data.card_type}}</span></td>
+    </tr>
+    <tr>
+        <td>区 号</td>
+        <td>
+            {{data.area}}
+        </td>
+    </tr>
+    <tr>
+        <td>邮 编</td>
+        <td>
+            {{data.code}}
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
