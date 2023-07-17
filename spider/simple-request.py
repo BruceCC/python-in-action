@@ -17,6 +17,7 @@ print(f'相应内容：{response.text}')
 print('################')
 print('爬取二进制数据')
 response = requests.get('https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png')
+response.encoding = 'utf-8'
 print(response.content)
 with open('百度logo.png', 'wb') as f:
     f.write(response.content)
