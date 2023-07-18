@@ -4,7 +4,7 @@ import requests
 print('################')
 print('返回内容UTF-8编码')
 response = requests.get('https://www.baidu.com')
-response.encoding = 'utf-8'
+response.encoding = 'UTF-8'
 
 print(f'响应状态码：{response.status_code}')
 print(f'请求网络地址：{response.url}')

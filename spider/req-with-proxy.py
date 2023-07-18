@@ -14,6 +14,7 @@ proxies = {
 # 对需要爬取的网络发送请求，verify-False不验证服务器的SSL证书，要有try catch异常捕获
 try:
     response = requests.get('http://2023.ip138.com', headers=headers, proxies=proxies, verify=False, timeout=3)
+    response.encoding = 'UTF-8'
     print(response.text)
 except Exception as e:
     print('错误异常信息为：', e)

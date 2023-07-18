@@ -9,7 +9,7 @@ ip_list = []
 def get_ip(url, headers):
     # 发送网络请求
     response = requests.get(url, headers=headers)
-    response.encoding = 'utf-8'
+    response.encoding = 'UTF-8'
     # 判断请求是否成功
     if response.status_code == 200:
         # 解析HTML

@@ -23,7 +23,7 @@ for ip in ip_list:
         response = requests.get('http://2023.ip138.com/', headers=headers, proxies=proxies, timeout=2)
         print(response.status_code)
         if response.status_code == 200:
-            response.encoding = 'utf-8'
+            response.encoding = 'UTF-8'
             html = etree.HTML(response.text)
             info = html.xpath('/html/body/p[1]//text()')
             # 输出当前IP匿名信息

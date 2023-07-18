@@ -8,7 +8,7 @@ url = 'http://site2.rjkflm.com:666/index/index/chklogin.html'
 data = {'username': 'mrsoft', 'password': 'mrsoft'}
 # 发送登录请求
 response = session.post(url, data=data)
-response.encoding = 'utf-8'
+response.encoding = 'UTF-8'
 # 发送登录后页面请求
 response2 = session.get('http://site2.rjkflm.com:666')
 response2.encoding = 'utf-8'

@@ -9,11 +9,14 @@ headers = {
 
 # 创建requestsCookieJar对象，用于设置Cookies信息
 cookies_jar = requests.cookies.RequestsCookieJar()
+for cookie in cookies.split(';'):
+    key, value = cookie.strip().split('=', 1)
+    cookies_jar.set(key, value)
 
 # 发送网络请求
 url = 'https://www.chinaums.com/'
 response = requests.get(url, headers=headers, cookies=cookies_jar)
-response.encoding = 'utf-8'
+response.encoding = 'UTF-8'
 #print(response.text)
 if response.status_code == 200:
     # 解析html代码

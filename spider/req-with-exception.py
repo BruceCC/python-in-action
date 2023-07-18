@@ -7,6 +7,7 @@ from requests.exceptions import RequestException, ConnectionError, Timeout, HTTP
 for i in range(50):
     try:
         response = requests.get('https://www.baidu.com', timeout=0.05)
+        response.encoding = 'UTF-8'
         print(response.status_code)
     except ReadTimeout:
         print('超时异常')

@@ -22,7 +22,7 @@ print('配置Params参数')
 
 data = {'name': 'Michael', 'age': '36'}
 response = requests.get('http://httpbin.org/get', params=data)
-response.encoding = 'utf-8'
+response.encoding = 'UTF-8'
 print(response.content)
 
 
@@ -45,7 +45,7 @@ data = json.dumps(data)
 # 列表类型的表单参数
 #data = [('1', '天生我材必有用'), ("2", '会当凌绝顶，一览众山小')]
 response = requests.post('http://httpbin.org/post', data=data)
-response.encoding = 'utf-8'
+response.encoding = 'UTF-8'
 # 将响应数据转换为字典类型
 response_dict = json.loads(response.text)
 print(response_dict)
