@@ -12,49 +12,120 @@ print(ua)
 r = session.get('https://www.chinaums.com/xwzx/gsxw/', headers={'user-agent': ua})
 r.encoding = 'UTF-8'
 
-print(r.text)
 
-# 判断请求是否成功，成功则打印响应内容
 if r.status_code == 200:
-    # 获取所有class=right_li中的<li>标签
-    li_all = r.html.xpath('//li[@class="right_li"]')
+    # 调用render
+    r.html.render()
+    # 获取当前页面中所有电影信息的a标签
+    class_wp = r.html.xpath('//div[@class="list-wp"]/a')
+    for a in class_wp:
+        # 获取电影名称
+        title = a.find('p span')[0].text
+        # 获取电影评分
+        score = a.find('span')[1].text
+        # 获取详情页URL
+        detail_url = a.attrs.get("href")
+        # 获取图片URL
+        img_url = a.find('img')[0].attrs.get("src")
+        print(f'名称：{title}')
+        print(f'评分：{score}')
+        print(f'详情：{detail_url}')
+        print(f'图片：{img_url}')
+else:
+    print('请求失败')
 
-    # 循环遍历每个LI标签
-    for li in li_all:
-        # 提取新闻标题内容
-        news_title = li.find('a')[0].find('span')[0].text
-        # 获取新闻详情对应的地址
-        news_href = 'https://www.chinaums.com/xwzx/gsxw' + li.find('a[href]')[0].attrs.get('href').lstrip('.')
-        # 获取新闻发布时间
-        news_time = li.find('a')[0].find('em')[0].text
-        print(f'新闻标题：{news_title}\n')
-        print(f'新闻时间：{news_time}\n')
-        print(f'新闻链接：{news_href}\n')
 
 
-    # 获取特定内容新闻
-    for li in r.html.find('li', containing='项目'):
-        # 提取新闻标题内容
-        news_title = li.find('a')[0].find('span')[0].text
-        # 获取新闻详情对应的地址
-        news_href = 'https://www.chinaums.com/xwzx/gsxw' + li.find('a[href]')[0].attrs.get('href').lstrip('.')
-        # 获取新闻发布时间
-        news_time = li.find('a')[0].find('em')[0].text
-        print(f'新闻标题：{news_title}\n')
-        print(f'新闻时间：{news_time}\n')
-        print(f'新闻链接：{news_href}\n')
 
-        # 使用search方法获取
-        for li in r.html.find('li', containing='项目'):
-            # 提取新闻标题内容
-            news_title = li.search('<span class="right_span">{}</span>')[0]
-            # 获取新闻详情对应的地址
-            news_href = 'https://www.chinaums.com/xwzx/gsxw/' + li.search('<a href="{}" target="_blank" class="right_a">')[0].lstrip('./')
-            # 获取新闻发布时间
-            news_time = li.search('<em class="right_em">{}</em>')[0]
-            print(f'新闻标题：{news_title}\n')
-            print(f'新闻时间：{news_time}\n')
-            print(f'新闻链接：{news_href}\n')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
