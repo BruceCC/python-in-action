@@ -4,12 +4,12 @@ from requests_html import HTMLSession, UserAgent
 session = HTMLSession()
 
 # 生成随机头部信息
-ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+ua = UserAgent().random
 
 print(ua)
 
 
-r = session.get('https://www.chinaums.com/xwzx/gsxw/', headers={'user-agent': ua})
+r = session.get('https://movie.douban.com/chart', headers={'user-agent': ua})
 r.encoding = 'UTF-8'
 
 
