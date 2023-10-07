@@ -27,7 +27,7 @@ class BaichuanLLM(LLM):
     def _post(cls, url: str,
               query: typing.Dict) -> Any:
         _headers = {
-            "Authorization": "Bearer 540f0e05e33b48a9a29bde0d89d9775c",
+            "Authorization": "Bearer 540f0e05e33b48a9rea29bde0d89d9775c",
             "Content-Type": "application/json"
         }
         with requests.session() as sess:

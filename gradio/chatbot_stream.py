@@ -7,7 +7,7 @@ import json
 url = "https://tech.meikeigypsum.cn/forwardapi/v1/chat/completions"
 
 headers = {
-    "Authorization": "Bearer sk-gDwSHkdjqmoaqW1ugLcelBenJNT12TSMttii3Vzt",
+    "Authorization": "Bearer sk-gDwSHkddjqmoaqW1ureregLcelBenrereJNT12TSfMttii3Vzt",
     "Content-Type": "application/json"
 }
 
